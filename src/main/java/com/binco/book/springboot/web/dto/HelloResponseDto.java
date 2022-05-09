@@ -8,5 +8,6 @@ import lombok.RequiredArgsConstructor;
 public class HelloResponseDto {
 
   private final String name;
-  private final String amount;
+  private final int amount;
+
 }
