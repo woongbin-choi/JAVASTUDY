@@ -1,5 +1,6 @@
 package com.binco.book.springboot.web;
 
+import com.binco.book.springboot.config.auth.LoginUser;
 import com.binco.book.springboot.config.auth.dto.SessionUser;
 import com.binco.book.springboot.service.posts.PostsService;
 import com.binco.book.springboot.web.dto.PostsResponseDto;
@@ -19,10 +20,10 @@ public class IndexController {
   private final HttpSession httpSession;
 
   @GetMapping("/")
-  public String index(Model model) {
+  public String index(Model model, @LoginUser SessionUser user) {
     model.addAttribute("posts", postsService.findAllDesc());
-
-    SessionUser user = (SessionUser) httpSession.getAttribute("user");
+    //중복코드 매개변수로 user 받아오는것으로 변경
+    //SessionUser user = (SessionUser) httpSession.getAttribute("user");
     if(user != null) {
       model.addAttribute("userName", user.getName());
     }
