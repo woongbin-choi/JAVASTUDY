@@ -17,9 +17,7 @@
 >> 7. Spring Batch
 >> 8. Spring REST Docs
 >> 9. Simple Project
->>> 코로나 줄서기 서비스
->>> 패스트캠퍼스 포인트 관리 서비스
->>> 유지보수하기 좋은 코드 디자인 
+>>> 코로나 줄서기 서비스 / 패스트캠퍼스 포인트 관리 서비스 / 유지보수하기 좋은 코드 디자인 
 >> 10. Final Project
 >>> Calender Project
 
