@@ -8,6 +8,8 @@
 
 * [패스트캠퍼스 TDD](https://fastcampus.app/course-detail/203146) 이규원님의 안정감을 주는 코드 작성 방법 <br><br>
 * [패스트캠퍼스 The RED](https://fastcampus.app/course-detail/204897) 백명석,최범균님의 코드리뷰, 레거시와 TDD <br><br>
+> 코드리뷰, 레거시와 리펙토링, TDD를 배우기 전에 성장에 관해 이야기 해주신 것들이 인상 깊었다. 대부분의 강의에는 포함되지 않는 인생,개발 선배로써의 많은 조언을 듣고 다시 한번 목표를 위해 다짐을 하게 되었다. 아래 리스트는 강의를 통해 배운 것들을 블로그에 포스팅 하였다. 
+> > sa
 
 * [패스트캠퍼스 Spring 올인원](https://fastcampus.co.kr/dev_online_javaend)
 > Table of Contents
