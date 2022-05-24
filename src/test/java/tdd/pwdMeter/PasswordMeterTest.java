@@ -1,4 +1,4 @@
-package tdd;
+package tdd.pwdMeter;
 
 import org.junit.Test;
 
@@ -8,9 +8,7 @@ public class PasswordMeterTest {
 
   @Test
   public void nullInput() {
-    String password = null;
-    PasswordStrength expected = PasswordStrength.INVALID;
-    assertPasswordStrength(password, expected);
+    assertPasswordStrength(null, PasswordStrength.INVALID);
   }
 
   private void assertPasswordStrength(String password, PasswordStrength expected) {
@@ -26,9 +24,9 @@ public class PasswordMeterTest {
 
   @Test
   public void meetAllRules() {
-//    assertPasswordStrength("abcdABCD1234", PasswordStrength.STRONG);
-//    assertPasswordStrength("123abcdABCD", PasswordStrength.STRONG);
-//    assertPasswordStrength("ABCD1234abc", PasswordStrength.STRONG);
+    assertPasswordStrength("abcdABCD1234", PasswordStrength.STRONG);
+    assertPasswordStrength("123abcdABCD", PasswordStrength.STRONG);
+    assertPasswordStrength("ABCD1234abc", PasswordStrength.STRONG);
   }
 
   @Test
@@ -50,5 +48,15 @@ public class PasswordMeterTest {
   @Test
   public void meetOnlyLengthRule() {
     assertPasswordStrength("abcdefgjwof", PasswordStrength.WEEK);
+  }
+
+  @Test
+  public void meetOnlyUppercaseRule() {
+    assertPasswordStrength("abcABC", PasswordStrength.WEEK);
+  }
+
+  @Test
+  public void noRules() {
+    assertPasswordStrength("abcwef", PasswordStrength.WEEK);
   }
 }
