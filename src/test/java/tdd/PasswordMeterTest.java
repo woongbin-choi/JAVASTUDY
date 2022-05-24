@@ -26,8 +26,29 @@ public class PasswordMeterTest {
 
   @Test
   public void meetAllRules() {
-    assertPasswordStrength("abcdABCD1234", PasswordStrength.STRONG);
-    assertPasswordStrength("123abcdABCD", PasswordStrength.STRONG);
-    assertPasswordStrength("ABCD1234abc", PasswordStrength.STRONG);
+//    assertPasswordStrength("abcdABCD1234", PasswordStrength.STRONG);
+//    assertPasswordStrength("123abcdABCD", PasswordStrength.STRONG);
+//    assertPasswordStrength("ABCD1234abc", PasswordStrength.STRONG);
+  }
+
+  @Test
+  public void meet2RulesExceptForLengthRule() {
+    assertPasswordStrength("abc12AB", PasswordStrength.NORMAL);
+    assertPasswordStrength("12ABabc", PasswordStrength.NORMAL);
+  }
+
+  @Test
+  public void meet2RulesExceptForDigitRule() {
+    assertPasswordStrength("abcdABabc", PasswordStrength.NORMAL);
+  }
+
+  @Test
+  public void meet2RulesExceptForUppercaseRule() {
+    assertPasswordStrength("abcde1234", PasswordStrength.NORMAL);
+  }
+
+  @Test
+  public void meetOnlyLengthRule() {
+    assertPasswordStrength("abcdefgjwof", PasswordStrength.WEEK);
   }
 }
