@@ -6,15 +6,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PasswordMeterTest {
 
-  @Test
-  public void nullInput() {
-    assertPasswordStrength(null, PasswordStrength.INVALID);
-  }
-
   private void assertPasswordStrength(String password, PasswordStrength expected) {
     PasswordMeter meter = new PasswordMeter();
     PasswordStrength result = meter.meter(password);
     assertThat(result).isEqualTo(expected);
+  }
+
+  @Test
+  public void nullInput() {
+    assertPasswordStrength(null, PasswordStrength.INVALID);
   }
 
   @Test
