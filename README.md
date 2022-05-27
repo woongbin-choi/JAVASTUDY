@@ -16,7 +16,7 @@
 > 코드리뷰, 레거시와 리펙토링, TDD를 배우기 전에 성장에 관해 이야기 해주신 것들이 인상 깊었다. 대부분의 강의에는 포함되지 않는 인생,개발 선배로써의 많은 조언을 듣고 다시 한번 목표를 위해 다짐을 하게 되었다. 아래 리스트는 강의를 통해 배운 것들을 블로그에 포스팅 하였다. 
 > > * [코드리뷰의 중요성과 기법들](https://binco.tistory.com/entry/%EC%BD%94%EB%93%9C%EB%A6%AC%EB%B7%B0-%EC%A3%BC%EB%AA%A9%EC%A0%81)
 > > * [레거시와 리팩토링](https://binco.tistory.com/entry/%EB%A0%88%EA%B1%B0%EC%8B%9C%EC%99%80-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
-> > * [TDD]()
+> > * [TDD 정의 및 암호검사기 예시](https://binco.tistory.com/entry/TDD%EC%A0%95%EC%9D%98-%EC%95%94%ED%98%B8%EA%B2%80%EC%82%AC%EA%B8%B0)
 
 
 ***
