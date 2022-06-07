@@ -48,15 +48,16 @@ public class DMakerController {
     return dMakerService.deleteDeveloper(memberId);
   }
 
-  @ResponseStatus(value = HttpStatus.CONFLICT)
-  @ExceptionHandler(DMakerException.class)
-  public DMakerErrorResponse handleException (DMakerException e, HttpServletRequest request) {
-    log.error("errorCode: {}, url: {}, message: {}",
-      e.getDMakerErrorCode(), request.getRequestURL(), e.getDetailMessage());
-
-    return DMakerErrorResponse.builder()
-      .errorCode(e.getDMakerErrorCode())
-      .errorMessage(e.getDetailMessage())
-      .build();
-  }
+  // 전역 exception handler로 뺐음
+//  @ResponseStatus(value = HttpStatus.CONFLICT)
+//  @ExceptionHandler(DMakerException.class)
+//  public DMakerErrorResponse handleException (DMakerException e, HttpServletRequest request) {
+//    log.error("errorCode: {}, url: {}, message: {}",
+//      e.getDMakerErrorCode(), request.getRequestURL(), e.getDetailMessage());
+//
+//    return DMakerErrorResponse.builder()
+//      .errorCode(e.getDMakerErrorCode())
+//      .errorMessage(e.getDetailMessage())
+//      .build();
+//  }
 }
