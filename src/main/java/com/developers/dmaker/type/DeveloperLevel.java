@@ -11,5 +11,5 @@ public enum DeveloperLevel {
   JUNGNIOR("중니어 개발자"),
   SENIOR("시니어 개발자");
 
-  private final String descrption;
+  private final String description;
 }
