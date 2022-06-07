@@ -1,6 +1,7 @@
 package com.developers.dmaker.service;
 
 import com.developers.dmaker.dto.CreateDeveloper;
+import com.developers.dmaker.dto.DeveloperDto;
 import com.developers.dmaker.entity.Developer;
 import com.developers.dmaker.exception.DMakerErrorCode;
 import com.developers.dmaker.exception.DMakerException;
@@ -16,7 +17,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.developers.dmaker.exception.DMakerErrorCode.DUPLICATED_MEMBER_ID;
 import static com.developers.dmaker.exception.DMakerErrorCode.LEVEL_EXPERIENCE_YEARS_NOT_MATCHED;
@@ -25,7 +28,6 @@ import static com.developers.dmaker.exception.DMakerErrorCode.LEVEL_EXPERIENCE_Y
 @RequiredArgsConstructor
 public class DMakerService {
   private final DeveloperRepository developerRepository;
-  private final EntityManager em;
 
   // ACID
   // Atomic : 원자성 - A 계좌에서 만원 빠져나갔는데, 정전이 나서 B의 계좌에 안들어갈 경우 실패
@@ -71,5 +73,11 @@ public class DMakerService {
         throw new DMakerException(DUPLICATED_MEMBER_ID);
       }));
 //    if(developer.isPresent()) throw new DMakerException(DUPLICATED_MEMBER_ID);
+  }
+
+  public List<DeveloperDto> getAllDevelopers() {
+    return developerRepository.findAll()
+      .stream().map(DeveloperDto::fromEntity)
+      .collect(Collectors.toList());
   }
 }
