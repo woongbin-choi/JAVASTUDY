@@ -1,5 +1,6 @@
 package com.developers.dmaker.service;
 
+import com.developers.dmaker.dto.CreateDeveloper;
 import com.developers.dmaker.entity.Developer;
 import com.developers.dmaker.repository.DeveloperRepository;
 import com.developers.dmaker.type.DeveloperLevel;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +24,9 @@ public class DMakerService {
   // Isolation : 고립성
   // Durability : 지속성 - 모든 커밋 된 이력을 남긴다
   @Transactional
-  public void createdDeveloper(){
+  public void createdDeveloper(CreateDeveloper.Request request){
+    validateCreateDeveloperRequest(request);
+
     Developer developer = Developer.builder()
       .developerLevel(DeveloperLevel.JUNGNIOR)
       .developerSkillType(DeveloperSkillType.FRONT_END)
@@ -32,5 +36,12 @@ public class DMakerService {
       .build();
 
     developerRepository.save(developer);
+  }
+
+  private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
+    // business validation
+    if(request.getDeveloperLevel() == DeveloperLevel.SENIOR && request.getExperienceYears() < 10){
+      throw new RuntimeException("SENIOR need 10 years experience.");
+    }
   }
 }
