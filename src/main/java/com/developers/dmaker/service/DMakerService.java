@@ -33,18 +33,19 @@ public class DMakerService {
   // Isolation : 고립성
   // Durability : 지속성 - 모든 커밋 된 이력을 남긴다
   @Transactional
-  public void createdDeveloper(CreateDeveloper.Request request){
+  public CreateDeveloper.Response createdDeveloper(CreateDeveloper.Request request){
     validateCreateDeveloperRequest(request);
 
     Developer developer = Developer.builder()
-      .developerLevel(DeveloperLevel.JUNGNIOR)
-      .developerSkillType(DeveloperSkillType.FRONT_END)
-      .experienceYears(2)
-      .name("Olaf")
-      .age(5)
+      .developerLevel(request.getDeveloperLevel())
+      .developerSkillType(request.getDeveloperSkillType())
+      .experienceYears(request.getExperienceYears())
+      .name(request.getName())
+      .age(request.getAge())
       .build();
 
     developerRepository.save(developer);
+    return CreateDeveloper.Response.fromEntity(developer);
   }
 
   private void validateCreateDeveloperRequest(CreateDeveloper.Request request) {
