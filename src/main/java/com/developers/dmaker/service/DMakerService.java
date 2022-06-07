@@ -7,12 +7,14 @@ import com.developers.dmaker.type.DeveloperSkillType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class DMakerService {
   private final DeveloperRepository developerRepository;
+  private final EntityManager em;
 
   // ACID
   // Atomic : 원자성 - A 계좌에서 만원 빠져나갔는데, 정전이 나서 B의 계좌에 안들어갈 경우 실패
