@@ -78,6 +78,8 @@ public class DMakerService {
         throw new DMakerException(DUPLICATED_MEMBER_ID);
       }));
 //    if(developer.isPresent()) throw new DMakerException(DUPLICATED_MEMBER_ID);
+
+    throw new ArrayIndexOutOfBoundsException();
   }
 
   @Transactional
