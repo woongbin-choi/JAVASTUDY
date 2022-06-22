@@ -3,6 +3,7 @@ package com.developers.dmaker.controller;
 import com.developers.dmaker.dto.*;
 import com.developers.dmaker.exception.DMakerException;
 import com.developers.dmaker.service.DMakerService;
+import com.developers.dmaker.service.FreeBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import java.util.List;
 public class DMakerController {
 
   private final DMakerService dMakerService;
+  private final FreeBoardService freeBoardService;
 
   @GetMapping("/developers")
   public List<DeveloperDto> getAllDevelopers() {
@@ -46,6 +48,11 @@ public class DMakerController {
   @DeleteMapping("/developer/{memberId}")
   public DeveloperDetailDto deleteDeveloper(@PathVariable String memberId){
     return dMakerService.deleteDeveloper(memberId);
+  }
+
+  @PostMapping("/add/freeBoard")
+  public void addFreeBoard(@RequestBody FreeBoardDto freeBoardDto){
+    freeBoardService.addFreeBoard(freeBoardDto);
   }
 
   // 전역 exception handler로 뺐음
