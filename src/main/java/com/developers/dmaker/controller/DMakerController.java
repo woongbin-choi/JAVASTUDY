@@ -1,5 +1,6 @@
 package com.developers.dmaker.controller;
 
+import com.developers.dmaker.aspect.SessionChk;
 import com.developers.dmaker.dto.*;
 import com.developers.dmaker.exception.DMakerException;
 import com.developers.dmaker.service.DMakerService;
@@ -31,6 +32,7 @@ public class DMakerController {
     return dMakerService.getDeveloperDetail(memberId);
   }
 
+  @SessionChk
   @PostMapping("/create-developer")
   public CreateDeveloper.Response createDevelopers(
    @Valid @RequestBody CreateDeveloper.Request request
@@ -50,10 +52,7 @@ public class DMakerController {
     return dMakerService.deleteDeveloper(memberId);
   }
 
-  @PostMapping("/add/freeBoard")
-  public void addFreeBoard(@RequestBody FreeBoardDto freeBoardDto){
-    freeBoardService.addFreeBoard(freeBoardDto);
-  }
+
 
   // 전역 exception handler로 뺐음
 //  @ResponseStatus(value = HttpStatus.CONFLICT)
