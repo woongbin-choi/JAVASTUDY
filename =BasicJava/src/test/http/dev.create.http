@@ -1,0 +1,13 @@
+POST http://localhost:8080/create-developer
+Content-Type: application/json
+
+{
+  "developerLevel" : "JUNIOR",
+  "developerSkillType" : "FRONT_END",
+  "experienceYears" : 2,
+  "memberId" : "Mickey",
+  "name" : "mouse",
+  "age" : 20
+}
+
+###
