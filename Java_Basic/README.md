@@ -1,4 +1,4 @@
-# _💪JAVA Study_
+<!-- # _💪JAVA Study_
 
 ## 📝Contents
 * [이동욱](https://jojoldu.tistory.com/)님의 ['스프링 부트와 AWS로 혼자 구현하는 웹 서비스'](http://www.yes24.com/Product/Goods/83849117)를 통해 JPA와 TDD 연습<br><br>
@@ -30,5 +30,5 @@
 >> 9. Simple Project
 >>> 코로나 줄서기 서비스 / 패스트캠퍼스 포인트 관리 서비스 / 유지보수하기 좋은 코드 디자인 
 >> 10. Final Project
->>> Calender Project
+>>> Calender Project -->
 
