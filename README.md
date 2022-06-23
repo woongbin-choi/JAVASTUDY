@@ -14,8 +14,7 @@
 > > * [레거시와 리팩토링](https://binco.tistory.com/entry/%EB%A0%88%EA%B1%B0%EC%8B%9C%EC%99%80-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
 > > * [TDD 정의 및 암호검사기 예시](https://binco.tistory.com/entry/TDD%EC%A0%95%EC%9D%98-%EC%95%94%ED%98%B8%EA%B2%80%EC%82%AC%EA%B8%B0)
 
-
-***
+<br/>
 
 # _💪Spring_Study_
 
