@@ -20,7 +20,7 @@ public class PostController {
 
     @PostMapping("/v1/posts")
     public String post(@RequestBody PostCreate postCreate) {
-        log.info("params={}", postCreate.toString());
+        log.info("Test params={}", postCreate.toString());
         return "Hello World";
     }
 
