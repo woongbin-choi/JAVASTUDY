@@ -16,20 +16,7 @@
 
 <br/>
 
-# _💪Spring_Study_
+# _📙Bincolog_
 ## 📝Contents
-* [패스트캠퍼스 Spring 올 인원](https://fastcampus.co.kr/dev_online_javaend)
-> Table of Contents
->> 1. Spring Framework
->> 2. Spring Boot
->> 3. Spring Web MVC
->> 4. Spring Data JPA
->> 5. Spring Security
->> 6. Spring OAuth2 Social
->> 7. Spring Batch
->> 8. Spring REST Docs
->> 9. Simple Project
->>> 코로나 줄서기 서비스 / 패스트캠퍼스 포인트 관리 서비스 / 유지보수하기 좋은 코드 디자인 
->> 10. Final Project
->>> Calender Project
+*
 
