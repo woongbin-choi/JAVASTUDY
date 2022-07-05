@@ -54,8 +54,8 @@ public class PostController {
         return "Hello World";
     }
 
-    @PostMapping("/posts")
-    public Map<String, String > post(@RequestBody @Valid PostCreate postCreate, BindingResult bindingResult) throws Exception {
+    @PostMapping("/posts-test2")
+    public Map<String, String > postTest2(@RequestBody @Valid PostCreate postCreate, BindingResult bindingResult) throws Exception {
         if (bindingResult.hasErrors()){
             List<FieldError> fieldErrorList = bindingResult.getFieldErrors();
             FieldError firstFieldError = fieldErrorList.get(0);
@@ -67,6 +67,13 @@ public class PostController {
             return error;
         }
         return null;
+    }
+
+    @PostMapping("/posts")
+    public Map<String, String> post(@RequestBody @Valid PostCreate postCreate) throws Exception {
+        Map<String,String> test = new HashMap<>();
+        test.put("test","test");
+        return test;
     }
 
 }
