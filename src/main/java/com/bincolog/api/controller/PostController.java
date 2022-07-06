@@ -1,5 +1,6 @@
 package com.bincolog.api.controller;
 
+import com.bincolog.api.domain.Post;
 import com.bincolog.api.request.PostCreate;
 import com.bincolog.api.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -75,8 +76,23 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public void post(@RequestBody @Valid PostCreate postCreate) throws Exception {
+    public void post(@RequestBody @Valid PostCreate postCreate){
+        // POST -> 200, 201
+        // Case1. 저장한 데이터 Entity -> response 응답
+        // Case2. 저장한 데이터 PK만 응답
+        // Case3. 응답 필요 없음 -> void
         postService.write(postCreate);
+    }
+
+    /*
+        /posts -> 글 전체 조회(검색 + 페이징)
+        /posts/{postId} -> 글 한개만 조회
+     */
+
+    @GetMapping("/posts/{postId}")
+    public Post get(@PathVariable(name="postId") Long id){
+        Post post = postService.get(id);
+        return post;
     }
 
 }
