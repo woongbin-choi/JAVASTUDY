@@ -1,6 +1,8 @@
 package com.bincolog.api.controller;
 
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.service.PostService;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
@@ -14,7 +16,10 @@ import java.util.Map;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class PostController {
+
+    private final PostService postService;
 
     // SSR -> jsp, thymeleaf, mustache, freemarker -> html rendering
     // SPA ->
@@ -71,9 +76,8 @@ public class PostController {
 
     @PostMapping("/posts")
     public Map<String, String> post(@RequestBody @Valid PostCreate postCreate) throws Exception {
-        Map<String,String> test = new HashMap<>();
-        test.put("test","test");
-        return test;
+        postService.write(postCreate);
+        return null;
     }
 
 }
