@@ -2,6 +2,7 @@ package com.bincolog.api.controller;
 
 import com.bincolog.api.domain.Post;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.response.PostResponse;
 import com.bincolog.api.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
@@ -87,12 +88,16 @@ public class PostController {
     /*
         /posts -> 글 전체 조회(검색 + 페이징)
         /posts/{postId} -> 글 한개만 조회
+
+        // Request Class -> PostCreate
+        // Response Class -> PostResponse
      */
 
     @GetMapping("/posts/{postId}")
-    public Post get(@PathVariable(name="postId") Long id){
-        Post post = postService.get(id);
-        return post;
+    public PostResponse get(@PathVariable(name="postId") Long id){
+        PostResponse response = postService.get(id);
+        // 서비스 정책에 맞는 응답 클래스를 분리해야 한다.
+        return response;
     }
 
 }

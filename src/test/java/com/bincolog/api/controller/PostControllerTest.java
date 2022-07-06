@@ -115,21 +115,19 @@ class PostControllerTest {
     void test4() throws Exception{
         // given
         Post post = Post.builder()
-                .title("foo")
+                .title("foo123412341234")
                 .content("bar")
                 .build();
         postRepository.save(post);
 
-        // when
+        // expected
         mockMvc.perform(MockMvcRequestBuilders.get("/posts/{postId}",post.getId())
                         .contentType(APPLICATION_JSON)
                 )
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(post.getId()))
-                .andExpect(jsonPath("$.title").value("foo"))
+                .andExpect(jsonPath("$.title").value("foo1234123"))
                 .andExpect(jsonPath("$.content").value("bar"))
                 .andDo(print());
-
-        // then
     }
 }

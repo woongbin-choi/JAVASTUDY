@@ -3,6 +3,7 @@ package com.bincolog.api.service;
 import com.bincolog.api.domain.Post;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.response.PostResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -56,13 +57,16 @@ class PostServiceTest {
                 .build();
         postRepository.save(requestPost);
 
+        // 클라이언트 요구사항
+        // json 응답에서 title 값 길이를 최대 10글자로 해주세요.(서버에서 해야만 하는 경우라면)
+
         //when
-        Post post = postService.get(requestPost.getId());
+        PostResponse response = postService.get(requestPost.getId());
 
         //then
-        assertNotNull(post);
-        assertEquals("제목1",post.getTitle());
-        assertEquals("내용1",post.getContent());
+        assertNotNull(response);
+        assertEquals("제목1",response.getTitle());
+        assertEquals("내용1",response.getContent());
     }
 
 }
