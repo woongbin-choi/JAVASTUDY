@@ -93,11 +93,15 @@ public class PostController {
         // Response Class -> PostResponse
      */
 
+    @GetMapping("/posts")
+    public List<PostResponse> getAllPosts(){
+        return postService.getAllPosts();
+    }
+
     @GetMapping("/posts/{postId}")
-    public PostResponse get(@PathVariable(name="postId") Long id){
-        PostResponse response = postService.get(id);
+    public PostResponse get(@PathVariable Long postId){
         // 서비스 정책에 맞는 응답 클래스를 분리해야 한다.
-        return response;
+        return postService.get(postId);
     }
 
 }

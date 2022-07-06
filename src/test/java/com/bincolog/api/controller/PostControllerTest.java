@@ -4,6 +4,7 @@ import com.bincolog.api.domain.Post;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -128,6 +129,34 @@ class PostControllerTest {
                 .andExpect(jsonPath("$.id").value(post.getId()))
                 .andExpect(jsonPath("$.title").value("foo1234123"))
                 .andExpect(jsonPath("$.content").value("bar"))
+                .andDo(print());
+    }
+
+    @Test
+    @DisplayName("글 여러개 조회")
+    void test5() throws Exception{
+        // given
+        Post post1 = Post.builder()
+                .title("1")
+                .content("11")
+                .build();
+        postRepository.save(post1);
+
+        Post post2 = Post.builder()
+                .title("2")
+                .content("22")
+                .build();
+        postRepository.save(post2);
+
+        // expected
+        mockMvc.perform(MockMvcRequestBuilders.get("/posts")
+                        .contentType(APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()", Matchers.is(2)))
+                .andExpect(jsonPath("$[0].id").value(post1.getId()))
+                .andExpect(jsonPath("$[0].title").value("1"))
+                .andExpect(jsonPath("$[0].content").value("11"))
                 .andDo(print());
     }
 }
