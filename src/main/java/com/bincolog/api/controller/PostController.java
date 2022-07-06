@@ -75,9 +75,8 @@ public class PostController {
     }
 
     @PostMapping("/posts")
-    public Map<String, String> post(@RequestBody @Valid PostCreate postCreate) throws Exception {
+    public void post(@RequestBody @Valid PostCreate postCreate) throws Exception {
         postService.write(postCreate);
-        return null;
     }
 
 }
