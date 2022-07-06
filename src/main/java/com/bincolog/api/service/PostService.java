@@ -6,6 +6,9 @@ import com.bincolog.api.request.PostCreate;
 import com.bincolog.api.response.PostResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,8 +40,9 @@ public class PostService {
                 .build();
     }
 
-    public List<PostResponse> getAllPosts(){
-        return postRepository.findAll().stream()
+    // 글이 너무 많은 경우 -> 비용이 너무 많이 든다.(페이징 안했을 경우)
+    public List<PostResponse> getAllPosts(Pageable pageable){
+        return postRepository.findAll(pageable).stream()
                 .map(PostResponse::new)
                 .collect(Collectors.toList());
     }

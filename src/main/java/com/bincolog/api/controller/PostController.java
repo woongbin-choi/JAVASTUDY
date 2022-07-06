@@ -7,6 +7,8 @@ import com.bincolog.api.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -93,9 +95,10 @@ public class PostController {
         // Response Class -> PostResponse
      */
 
+    // 한 페이지당 10개보기, 30개보기 등 옵션이 있으면 Default 빼고 param에 size를 추가하는 방식으로 변경해야 함.
     @GetMapping("/posts")
-    public List<PostResponse> getAllPosts(){
-        return postService.getAllPosts();
+    public List<PostResponse> getAllPosts(@PageableDefault(size = 5) Pageable pageable){
+        return postService.getAllPosts(pageable);
     }
 
     @GetMapping("/posts/{postId}")
