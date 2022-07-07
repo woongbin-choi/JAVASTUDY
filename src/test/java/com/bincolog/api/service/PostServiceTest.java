@@ -3,6 +3,7 @@ package com.bincolog.api.service;
 import com.bincolog.api.domain.Post;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.request.PostSearch;
 import com.bincolog.api.response.PostResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -90,7 +91,7 @@ class PostServiceTest {
                 .collect(Collectors.toList());
         postRepository.saveAll(requestPosts);
 
-        Pageable pageable = PageRequest.of(0,5, Sort.by(Sort.Direction.DESC, "id"));
+        Pageable pageable = PageRequest.of(0,5, Sort.by(Sort.Direction.DESC,"id"));
 
         //when
         List<PostResponse> posts = postService.getAllPosts(pageable);
@@ -99,6 +100,32 @@ class PostServiceTest {
         assertEquals(5L, posts.size());
         assertEquals("빈코 제목 = 30", posts.get(0).getTitle());
         assertEquals("빈코 제목 = 26", posts.get(4).getTitle());
+    }
+
+    @Test
+    @DisplayName("QueryDsl 테스트")
+    void test4() {
+        //given
+        List<Post> requestPosts = IntStream.range(0,20)
+                .mapToObj(i ->
+                        Post.builder()
+                                .title("빈코 제목 = " + i)
+                                .content("빈코 내용 = " + i)
+                                .build()
+                )
+                .collect(Collectors.toList());
+        postRepository.saveAll(requestPosts);
+
+        PostSearch postSearch = PostSearch.builder()
+                .page(1)
+                .build();
+
+        //when
+        List<PostResponse> posts = postService.getAllPostsWithQueryDsl(postSearch);
+
+        //then
+        assertEquals(10L, posts.size());
+        assertEquals("빈코 제목 = 19", posts.get(0).getTitle());
     }
 
 }

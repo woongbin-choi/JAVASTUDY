@@ -1,11 +1,10 @@
 package com.bincolog.api.controller;
 
-import com.bincolog.api.domain.Post;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.request.PostSearch;
 import com.bincolog.api.response.PostResponse;
 import com.bincolog.api.service.PostService;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -99,6 +98,11 @@ public class PostController {
     @GetMapping("/posts")
     public List<PostResponse> getAllPosts(@PageableDefault(size = 5) Pageable pageable){
         return postService.getAllPosts(pageable);
+    }
+
+    @GetMapping("/posts-queryDsl")
+    public List<PostResponse> getAllPostsWithQueryDsl(@ModelAttribute PostSearch postSearch) {
+        return postService.getAllPostsWithQueryDsl(postSearch);
     }
 
     @GetMapping("/posts/{postId}")
