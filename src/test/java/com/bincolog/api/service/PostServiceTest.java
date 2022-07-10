@@ -3,8 +3,10 @@ package com.bincolog.api.service;
 import com.bincolog.api.domain.Post;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.request.PostEdit;
 import com.bincolog.api.request.PostSearch;
 import com.bincolog.api.response.PostResponse;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -83,10 +85,10 @@ class PostServiceTest {
         //given
         List<Post> requestPosts = IntStream.range(1, 31)
                 .mapToObj(i ->
-                    Post.builder()
-                            .title("빈코 제목 = " + i)
-                            .content("빈코 내용 = " + i)
-                            .build()
+                        Post.builder()
+                                .title("빈코 제목 = " + i)
+                                .content("빈코 내용 = " + i)
+                                .build()
                 )
                 .collect(Collectors.toList());
         postRepository.saveAll(requestPosts);
@@ -126,6 +128,60 @@ class PostServiceTest {
         //then
         assertEquals(10L, posts.size());
         assertEquals("빈코 제목 = 19", posts.get(0).getTitle());
+    }
+
+    @Test
+    @DisplayName("글 제목 수정")
+    void test5() {
+        //given
+        Post post = Post.builder()
+                .title("빈코 제목")
+                .content("빈코 내용")
+                .build();
+
+        postRepository.save(post);
+
+        PostEdit postEdit = PostEdit.builder()
+                .title("빈코 제목수정")
+                .content("빈코 내용")
+                .build();
+
+        //when
+        postService.edit(post.getId(),postEdit);
+
+        //then
+        Post changePost = postRepository.findById(post.getId())
+                .orElseThrow(() -> new RuntimeException("글이 존재하지 않습니다. id=" + post.getId()));
+
+        Assertions.assertEquals("빈코 제목수정", changePost.getTitle());
+        Assertions.assertEquals("빈코 내용", changePost.getContent());
+    }
+
+    @Test
+    @DisplayName("글 내용 수정")
+    void test6() {
+        //given
+        Post post = Post.builder()
+                .title("빈코 제목")
+                .content("빈코 내용")
+                .build();
+
+        postRepository.save(post);
+
+        PostEdit postEdit = PostEdit.builder()
+                .title("빈코 제목")
+                .content("빈코 내용 수정")
+                .build();
+
+        //when
+        postService.edit(post.getId(),postEdit);
+
+        //then
+        Post changePost = postRepository.findById(post.getId())
+                .orElseThrow(() -> new RuntimeException("글이 존재하지 않습니다. id=" + post.getId()));
+
+        Assertions.assertEquals("빈코 제목", changePost.getTitle());
+        Assertions.assertEquals("빈코 내용 수정", changePost.getContent());
     }
 
 }

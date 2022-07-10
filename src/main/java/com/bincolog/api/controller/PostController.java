@@ -1,6 +1,7 @@
 package com.bincolog.api.controller;
 
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.request.PostEdit;
 import com.bincolog.api.request.PostSearch;
 import com.bincolog.api.response.PostResponse;
 import com.bincolog.api.service.PostService;
@@ -109,6 +110,11 @@ public class PostController {
     public PostResponse get(@PathVariable Long postId){
         // 서비스 정책에 맞는 응답 클래스를 분리해야 한다.
         return postService.get(postId);
+    }
+
+    @PatchMapping("/posts/{postId}")
+    public void edit(@PathVariable Long postId, @RequestBody @Valid PostEdit request){
+        postService.edit(postId, request);
     }
 
 }

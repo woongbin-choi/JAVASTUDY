@@ -9,13 +9,15 @@ import lombok.Setter;
 @Builder
 public class PostSearch {
 
+    private static final int MAX_SIZE = 2000;
+
     @Builder.Default
     private Integer page = 1;
     @Builder.Default
     private Integer size = 10;
 
     public long getOffset() {
-        return (long) (page - 1) * size;
+        return (long) (Math.max(1,page) - 1) * Math.min(size, MAX_SIZE);
     }
 
     // 생성자에서 Builder 쓰면 Default 안 먹어서 Nullpoint 뜨는 오류 ~!

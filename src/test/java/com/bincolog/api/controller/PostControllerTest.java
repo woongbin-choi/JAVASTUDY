@@ -3,6 +3,7 @@ package com.bincolog.api.controller;
 import com.bincolog.api.domain.Post;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.request.PostEdit;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
@@ -187,6 +188,31 @@ class PostControllerTest {
                 .andExpect(jsonPath("$[0].id").value(30))
                 .andExpect(jsonPath("$.[0].title").value("빈코 제목 = 30"))
                 .andExpect(jsonPath("$.[0].content").value("빈코 내용 = 30"))
+                .andDo(print());
+    }
+
+    @Test
+    @DisplayName("글 제목 수정")
+    void test7() throws Exception{
+        //given
+        Post post = Post.builder()
+                .title("빈코 제목")
+                .content("빈코 내용")
+                .build();
+
+        postRepository.save(post);
+
+        PostEdit postEdit = PostEdit.builder()
+                .title("빈코 제목 수정")
+                .content("빈코 내용")
+                .build();
+
+        // expected
+        mockMvc.perform(MockMvcRequestBuilders.patch("/posts/{postId}", post.getId())
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(postEdit))
+                )
+                .andExpect(status().isOk())
                 .andDo(print());
     }
 

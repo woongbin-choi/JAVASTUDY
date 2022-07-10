@@ -1,8 +1,10 @@
 package com.bincolog.api.service;
 
 import com.bincolog.api.domain.Post;
+import com.bincolog.api.domain.PostEditor;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
+import com.bincolog.api.request.PostEdit;
 import com.bincolog.api.request.PostSearch;
 import com.bincolog.api.response.PostResponse;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,6 +57,20 @@ public class PostService {
         return postRepository.getAllPostsWithQueryDsl(postSearch).stream()
                 .map(PostResponse::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void edit(Long id, PostEdit postEdit) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 글입니다."));
+
+        PostEditor.PostEditorBuilder postEditorBuilder = post.toEditor();
+
+        PostEditor postEditor = postEditorBuilder.title(postEdit.getTitle())
+                .content(postEdit.getContent())
+                .build();
+
+        post.edit(postEditor);
     }
 
 }
