@@ -1,6 +1,7 @@
 package com.bincolog.api.service;
 
 import com.bincolog.api.domain.Post;
+import com.bincolog.api.exception.PostNotFound;
 import com.bincolog.api.repository.PostRepository;
 import com.bincolog.api.request.PostCreate;
 import com.bincolog.api.request.PostEdit;
@@ -77,6 +78,22 @@ class PostServiceTest {
         assertNotNull(response);
         assertEquals("제목1",response.getTitle());
         assertEquals("내용1",response.getContent());
+    }
+
+    @Test
+    @DisplayName("글 한개 조회 예외처리")
+    void test2_1() {
+        //given
+        Post post = Post.builder()
+                .title("제목")
+                .content("내용")
+                .build();
+        postRepository.save(post);
+
+        //expected
+        Assertions.assertThrows(PostNotFound.class, () -> {
+            postService.get(post.getId() + 1L);
+        });
     }
 
     @Test
@@ -185,6 +202,28 @@ class PostServiceTest {
     }
 
     @Test
+    @DisplayName("글 내용 수정 - 존재하지 않는 글")
+    void test6_1() {
+        //given
+        Post post = Post.builder()
+                .title("빈코 제목")
+                .content("빈코 내용")
+                .build();
+
+        postRepository.save(post);
+
+        PostEdit postEdit = PostEdit.builder()
+                .title("빈코 제목")
+                .content("빈코 내용 수정")
+                .build();
+
+        //expected
+        Assertions.assertThrows(PostNotFound.class, () -> {
+           postService.edit(post.getId() + 1L, postEdit);
+        });
+    }
+
+    @Test
     @DisplayName("게시글 삭제")
     void test7() {
         //given
@@ -199,6 +238,22 @@ class PostServiceTest {
 
         //then
         Assertions.assertEquals(0, postRepository.count());
+    }
+
+    @Test
+    @DisplayName("게시글 삭제 - 존재하지 않는 글")
+    void test8() {
+        //given
+        Post post = Post.builder()
+                .title("제목")
+                .content("내용")
+                .build();
+        postRepository.save(post);
+
+        //expected
+        Assertions.assertThrows(PostNotFound.class, () -> {
+           postService.delete(post.getId() + 1L);
+        });
     }
 
 }
