@@ -85,10 +85,9 @@ public class PostController {
         // Case1. 저장한 데이터 Entity -> response 응답
         // Case2. 저장한 데이터 PK만 응답
         // Case3. 응답 필요 없음 -> void
-        if(postCreate.getTitle().contains("바보")){
-            throw new InvalidRequest();
-        }
+        postCreate.validationChk();
         postService.write(postCreate);
+
     }
 
     /*
