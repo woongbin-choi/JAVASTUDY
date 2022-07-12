@@ -1,5 +1,6 @@
 package com.bincolog.api.controller;
 
+import com.bincolog.api.exception.PostNotFound;
 import com.bincolog.api.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -29,4 +30,15 @@ public class ExceptionController {
     }
 
 
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(PostNotFound.class)
+    public ErrorResponse postNotFound(PostNotFound e) {
+        ErrorResponse response = ErrorResponse.builder()
+                .code("404")
+                .message(e.getMessage())
+                .build();
+
+        return response;
+    }
 }
