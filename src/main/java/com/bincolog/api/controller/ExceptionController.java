@@ -1,10 +1,12 @@
 package com.bincolog.api.controller;
 
+import com.bincolog.api.exception.BincologException;
 import com.bincolog.api.exception.InvalidRequest;
 import com.bincolog.api.exception.PostNotFound;
 import com.bincolog.api.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -41,13 +43,20 @@ public class ExceptionController {
         return response;
     }
     @ResponseBody
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(InvalidRequest.class)
-    public ErrorResponse invalidRequest(PostNotFound e) {
-        ErrorResponse response = ErrorResponse.builder()
-                .code("404")
+    @ExceptionHandler(BincologException.class)
+    public ResponseEntity<ErrorResponse> bincologException(BincologException e) {
+        int statusCode = e.getStatusCode();
+
+        ErrorResponse body = ErrorResponse.builder()
+                .code(String.valueOf(statusCode))
                 .message(e.getMessage())
+                .validation(e.getValidation())
                 .build();
+
+        // 응답 json validation -> title : 제목에 바보를 포함할 수 없습니다.
+
+        ResponseEntity<ErrorResponse> response = ResponseEntity.status(statusCode)
+                .body(body);
 
         return response;
     }
