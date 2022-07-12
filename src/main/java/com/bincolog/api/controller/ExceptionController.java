@@ -1,5 +1,6 @@
 package com.bincolog.api.controller;
 
+import com.bincolog.api.exception.InvalidRequest;
 import com.bincolog.api.exception.PostNotFound;
 import com.bincolog.api.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -28,12 +29,21 @@ public class ExceptionController {
         }
         return response;
     }
-
-
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(PostNotFound.class)
     public ErrorResponse postNotFound(PostNotFound e) {
+        ErrorResponse response = ErrorResponse.builder()
+                .code("404")
+                .message(e.getMessage())
+                .build();
+
+        return response;
+    }
+    @ResponseBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(InvalidRequest.class)
+    public ErrorResponse invalidRequest(PostNotFound e) {
         ErrorResponse response = ErrorResponse.builder()
                 .code("404")
                 .message(e.getMessage())

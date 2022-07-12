@@ -1,5 +1,6 @@
 package com.bincolog.api.controller;
 
+import com.bincolog.api.exception.InvalidRequest;
 import com.bincolog.api.request.PostCreate;
 import com.bincolog.api.request.PostEdit;
 import com.bincolog.api.request.PostSearch;
@@ -84,6 +85,9 @@ public class PostController {
         // Case1. 저장한 데이터 Entity -> response 응답
         // Case2. 저장한 데이터 PK만 응답
         // Case3. 응답 필요 없음 -> void
+        if(postCreate.getTitle().contains("바보")){
+            throw new InvalidRequest();
+        }
         postService.write(postCreate);
     }
 

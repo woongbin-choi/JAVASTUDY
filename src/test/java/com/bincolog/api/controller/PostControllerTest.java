@@ -261,4 +261,24 @@ class PostControllerTest {
                 .andDo(print());
     }
 
+    @Test
+    @DisplayName("글 작성시 제목에 '바보'는 포함 될 수 없다.")
+    void insertPostException() throws Exception {
+        // give
+        PostCreate request = PostCreate.builder()
+                .title("나는 바보")
+                .content("내용입니다.")
+                .build();
+
+        String json = objectMapper.writeValueAsString(request);
+
+        // when
+        mockMvc.perform(MockMvcRequestBuilders.post("/posts")
+                        .contentType(APPLICATION_JSON)
+                        .content(json)
+                )
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
 }
