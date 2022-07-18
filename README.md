@@ -1,3 +1,15 @@
+# _📙Bincolog_
+## 📝Contents
+* [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습. <br><br>
+
+![캡처](https://user-images.githubusercontent.com/77534863/179460311-22a67731-2601-4bab-a898-e282a9dc98e0.PNG)
+
+블로그를 만드는 과정을 따라하면서 SpringBoot와 JPA를 사용하여 기본적인 CRUD, TDD, Exception 처리 등 많은 것을 배울 수 있었다.
+특히 Mock을 통해 TDD를 하는 과정을 복습하면서 사용법에 대해 좀 더 익숙해졌고, 앞으로 만들 토이 프로젝트에 적극 반영할 예정이다.
+이 밖의, 롬복 어노테이션의 몰랐던 부분들과 Entity, Response, Request 등 각각의 쓰임새를 익힐 수 있었다.
+
+<br/>
+
 # _💪Java_Basic_
 
 ## 📝Contents
@@ -14,14 +26,4 @@
 > > * [레거시와 리팩토링](https://binco.tistory.com/entry/%EB%A0%88%EA%B1%B0%EC%8B%9C%EC%99%80-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81)
 > > * [TDD 정의 및 암호검사기 예시](https://binco.tistory.com/entry/TDD%EC%A0%95%EC%9D%98-%EC%95%94%ED%98%B8%EA%B2%80%EC%82%AC%EA%B8%B0)
 
-<br/>
 
-# _📙Bincolog_
-## 📝Contents
-* [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습. <br><br>
-
-![캡처](https://user-images.githubusercontent.com/77534863/179460311-22a67731-2601-4bab-a898-e282a9dc98e0.PNG)
-
-블로그를 만드는 과정을 따라하면서 SpringBoot와 JPA를 사용하여 기본적인 CRUD, TDD, Exception 처리 등 많은 것을 배울 수 있었다.
-특히 Mock을 통해 TDD를 하는 과정을 복습하면서 사용법에 대해 좀 더 익숙해졌고, 앞으로 만들 토이 프로젝트에 적극 반영할 예정이다.
-이 밖의, 롬복 어노테이션의 몰랐던 부분들과 Entity, Response, Request 등 각각의 쓰임새를 익힐 수 있었다.
