@@ -2,7 +2,8 @@
 ## 📝Contents
 * [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습 <br><br>
 
-![캡처](https://user-images.githubusercontent.com/77534863/179460311-22a67731-2601-4bab-a898-e282a9dc98e0.PNG)
+![image](https://user-images.githubusercontent.com/77534863/188764194-31b0961c-c4ec-4f9e-90c2-fb627120202e.png)
+
 
 블로그를 만드는 과정을 따라하면서 SpringBoot와 JPA를 사용하여 기본적인 CRUD, TDD, Exception 처리 등 많은 것을 배울 수 있었다.
 특히 Mock을 통해 TDD를 하는 과정을 복습하면서 사용법에 대해 좀 더 익숙해졌고, 앞으로 만들 토이 프로젝트에 적극 반영할 예정이다.
