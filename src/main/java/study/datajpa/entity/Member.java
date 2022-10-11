@@ -1,13 +1,14 @@
 package study.datajpa.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString(of = {"id", "username", "age"})
 public class Member {
 
     @Id
@@ -21,12 +22,12 @@ public class Member {
     @JoinColumn(name = "team_id")
     private Team team;
 
-
-    protected Member() {
-
-    }
-
     public Member(String username) {
         this.username = username;
+    }
+
+    public void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
     }
 }
