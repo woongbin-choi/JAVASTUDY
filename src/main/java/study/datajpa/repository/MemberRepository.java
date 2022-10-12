@@ -3,11 +3,16 @@ package study.datajpa.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import study.datajpa.dto.MemberDto;
 import study.datajpa.entity.Member;
 
 import java.util.List;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
+
+    // 메소드 이름으로 쿼리 생성
+    List<Member> findByUsername(String username);
+    List<Member> findByTop3();
 
     // 조건이 3개 이상 될 시 복잡해지고 너무 길어지는 단점.
     List<Member> findByUsernameAndAgeGreaterThan(String username, int age);
@@ -18,6 +23,14 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("select m from Member m where m.username = :username and m.age = :age")
     List<Member> findUser(@Param("username") String username, @Param("age") int age);
 
+    // Collection In절 처리
+    @Query("select m from Member m where m.username in :names")
+    List<Member> findByNames(@Param("names") List<String> names);
+
     @Query("select m.username from Member m")
     List<String> findUsernameList();
+
+    // DTO로 조회하기 - new Operation을 사용하여 Dto 추출
+    @Query("select new study.datajpa.dto.MemberDto(m.id, m.username, t.name) from Member m join m.team t")
+    List<MemberDto> findMemberDto();
 }
