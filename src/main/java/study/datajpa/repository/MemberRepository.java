@@ -8,6 +8,7 @@ import study.datajpa.entity.Member;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
@@ -34,4 +35,11 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     // DTO로 조회하기 - new Operation을 사용하여 Dto 추출
     @Query("select new study.datajpa.dto.MemberDto(m.id, m.username, t.name) from Member m join m.team t")
     List<MemberDto> findMemberDto();
+
+    /*
+    반환타입이 유연하다
+     */
+    List<Member> findListByUsername(String username); // 컬렉션 (데이터가 없을 경우에는 Empty 컬렉션을 반환함. Null이 아님)
+    Optional<Member> findOptionalByUsername(String username); // 단건 (null 일수도 아닐수도 있음)
+    Member findMemberByUsername(String username); // 단건 (데이터가 없을 경우에 Null을 반환)
 }
