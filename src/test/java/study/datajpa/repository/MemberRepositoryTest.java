@@ -44,6 +44,19 @@ class MemberRepositoryTest {
         assertThat(findUser).isEqualTo(binco);
     }
 
+    @Test
+    public void findUsernameList() {
+        Member binco = new Member("Binco", 27);
+        Member tistory = new Member("Tistory", 30);
+        memberRepository.save(binco);
+        memberRepository.save(tistory);
+
+        List<String> usernameList = memberRepository.findUsernameList();
+        for (String s : usernameList) {
+            System.out.println("s = " + s);
+        }
+    }
+
 
 
 }
