@@ -7,6 +7,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import study.datajpa.entity.Member;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,5 +32,18 @@ class MemberRepositoryTest {
         assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
         assertThat(findMember).isEqualTo(member);
     }
+
+    @Test
+    public void testQuery() {
+        Member binco = new Member("Binco", 27);
+        memberRepository.save(binco);
+
+        List<Member> result = memberRepository.findUser("Binco", 27);
+        Member findUser = result.get(0);
+
+        assertThat(findUser).isEqualTo(binco);
+    }
+
+
 
 }
