@@ -40,6 +40,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     반환타입이 유연하다
      */
     List<Member> findListByUsername(String username); // 컬렉션 (데이터가 없을 경우에는 Empty 컬렉션을 반환함. Null이 아님)
-    Optional<Member> findOptionalByUsername(String username); // 단건 (null 일수도 아닐수도 있음)
+    Optional<Member> findOptionalByUsername(String username); // 단건 (null 일수도 아닐수도 있음, 만약 결과가 2개 이상 나오면 예외 발생)
     Member findMemberByUsername(String username); // 단건 (데이터가 없을 경우에 Null을 반환)
 }
