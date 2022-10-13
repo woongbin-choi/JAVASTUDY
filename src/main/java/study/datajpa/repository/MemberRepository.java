@@ -87,6 +87,10 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @EntityGraph(attributePaths = {"team"})
     List<Member> findEntityGraphByUsername(@Param("username") String username);
 
+    // 오직 Read만 수행할 경우에 사용한다.
+    // 사용하는 곳에서 set을 통해 더티 체킹을 안하더라도 jpa에서는 db에서 데이터를 가져오는 즉시
+    // 변경감지를 위해 원본과 스냅샷을 1차캐시에 생성하기 때문에
+    // 비용이 발생한다. 성능 최적화를 위해 스냅샷을 안만드는것이 좋다
     @QueryHints(value = { @QueryHint(name = "org.hibernate.readOnly",
             value = "true")},
             forCounting = true)
