@@ -37,6 +37,14 @@ public class MemberJpaRepository {
         return Optional.ofNullable(member);
     }
 
+    public List<Member> findByUsername(String username) {
+        List<Member> memberList =
+                em.createQuery("select m from Member m where m.username = :username", Member.class)
+                        .setParameter("username", username)
+                .getResultList();
+        return memberList;
+    }
+
     public long count () {
         return em.createQuery("select count(m) from Member m", Long.class)
                 .getSingleResult();
