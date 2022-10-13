@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import study.datajpa.dto.MemberDto;
 import study.datajpa.entity.Member;
 
+import javax.persistence.LockModeType;
 import javax.persistence.QueryHint;
 import java.awt.print.Pageable;
 import java.util.Collection;
@@ -91,9 +92,12 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     // 사용하는 곳에서 set을 통해 더티 체킹을 안하더라도 jpa에서는 db에서 데이터를 가져오는 즉시
     // 변경감지를 위해 원본과 스냅샷을 1차캐시에 생성하기 때문에
     // 비용이 발생한다. 성능 최적화를 위해 스냅샷을 안만드는것이 좋다
-    // 복잡한 쿼리에서 사용할때(트래픽이 많고 중요한 로직) 좋다. 막 다 넣어도 그렇게 성능 최적화 안된다.
+    // 복잡한 쿼리에서 사용할때(트래픽이 많고 중요한 로직) 좋다. 막 다 넣어도 그렇게 성능 최적화 안된다. 성능 테스트해보고 결정
     @QueryHints(value = { @QueryHint(name = "org.hibernate.readOnly",
             value = "true")},
             forCounting = true)
     Member findReadOnlyByUsername(String name);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    List<Member> findByUsernameLock(String name);
 }
