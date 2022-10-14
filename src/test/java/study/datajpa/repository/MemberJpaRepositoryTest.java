@@ -8,6 +8,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import study.datajpa.entity.Member;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -20,6 +22,9 @@ class MemberJpaRepositoryTest {
 
     @Autowired
     MemberJpaRepository memberJpaRepository;
+
+    @PersistenceContext
+    EntityManager em;
 
     @Test
     void testMember() {
@@ -107,8 +112,14 @@ class MemberJpaRepositoryTest {
         //when
         int resultCount = memberJpaRepository.bulkAgePlus(20);
 
+        em.flush();
+        em.clear();
+
+        Member member3 = memberJpaRepository.findByUsername("member3").get(0);
+
         //then
         assertThat(resultCount).isEqualTo(3);
+        assertThat(member3.getAge()).isEqualTo(21);
     }
 
 }
