@@ -1,7 +1,8 @@
 # _📲 Spring Data JPA_
 ## 📝Contents
-* [김영한 님의 '실전! 스프링 데이터 JPA'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 JPA 및 Spring Data JPA 연습<br><br>
+* [김영한 님의 '실전! 스프링 데이터 JPA'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 JPA 및 Spring Data JPA 연습
 * [정리 포스팅](https://binco.tistory.com/m/entry/SpringDataJPA-%EA%B8%B0%EC%A1%B4JPA-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%82%AC%EC%9A%A9%EB%B2%95)
+<br><br>
 
 ![image](https://user-images.githubusercontent.com/77534863/196109876-102a0c49-1faa-4428-b2bb-597a26610b3d.png)
 
@@ -9,7 +10,10 @@
 
 # _🛍BincoShop_
 ## 📝Contents
-* [김영한](https://www.inflearn.com/users/@yh/blogs)님의 ['스프링 부트와 JPA 활용'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard)를 통해 JPA & SpringBoot & Thymeleaf 연습<br><br>
+* [김영한](https://www.inflearn.com/users/@yh/blogs)님의 ['스프링 부트와 JPA 활용'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard)를 통해 JPA & SpringBoot & Thymeleaf 연습
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringDataJPA-%EA%B8%B0%EC%A1%B4JPA-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%82%AC%EC%9A%A9%EB%B2%95)
+<br><br>
+
 
 ![image](https://user-images.githubusercontent.com/77534863/188764194-31b0961c-c4ec-4f9e-90c2-fb627120202e.png)
 
