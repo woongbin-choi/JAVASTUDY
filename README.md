@@ -6,6 +6,8 @@
 
 ![image](https://user-images.githubusercontent.com/77534863/196109876-102a0c49-1faa-4428-b2bb-597a26610b3d.png)
 
+간단한 도메인 예제를 가지고 순수 JPA부터 Spring Data JPA의 여러 기술들을 접할 수 있었다. 코드 한 줄만 수정해서 N+1문제를 해결하고 성능 최적화를 해나가는 과정이 놀라웠다. 순수 JPA와 Spring Data JPA의 차이점을 알게 되었고, 다양한 에노테이션을 직접 사용해 볼 수 있었다. 단순히 그냥 쓰던 기술들도 이번 기회에 어떤 동작원리를 가지고 진행 되는지에 대해 알게 되어서 좋았다.
+
 <br />
 
 # _🛍BincoShop_
