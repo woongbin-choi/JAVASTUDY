@@ -27,7 +27,9 @@
 
 # _📙Bincolog_
 ## 📝Contents
-* [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습 <br><br>
+* [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습 
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringBoot-JPA-%EA%B2%8C%EC%8B%9C%ED%8C%90-CRUD-%EA%B5%AC%ED%98%84Create)
+<br><br>
 
 ![캡처](https://user-images.githubusercontent.com/77534863/179460311-22a67731-2601-4bab-a898-e282a9dc98e0.PNG)
 
