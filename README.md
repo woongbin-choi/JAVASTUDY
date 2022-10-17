@@ -11,7 +11,7 @@
 # _🛍BincoShop_
 ## 📝Contents
 * [김영한](https://www.inflearn.com/users/@yh/blogs)님의 ['스프링 부트와 JPA 활용'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard)를 통해 JPA & SpringBoot & Thymeleaf 연습
-* [정리 포스팅](https://binco.tistory.com/m/entry/SpringDataJPA-%EA%B8%B0%EC%A1%B4JPA-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%82%AC%EC%9A%A9%EB%B2%95)
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringBoot-JPA-%EC%87%BC%ED%95%91%EB%AA%B0-%EB%8F%84%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%84%A4%EA%B3%84)
 <br><br>
 
 
