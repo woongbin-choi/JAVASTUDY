@@ -36,7 +36,7 @@ class QuerydslApplicationTests {
 				.fetchOne();
 
 		assertThat(result).isEqualTo(hello);
-		assertThat(result.getId()).isEqualTo(hello.getId());
+//		assertThat(result.getId()).isEqualTo(hello.getId());
 	}
 
 }
