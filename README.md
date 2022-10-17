@@ -1,3 +1,6 @@
+# _📲 Spring Data JPA_
+## 📝Contents
+
 # _🛍BincoShop_
 ## 📝Contents
 * [김영한](https://www.inflearn.com/users/@yh/blogs)님의 ['스프링 부트와 JPA 활용'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard)를 통해 JPA & SpringBoot & Thymeleaf 연습<br><br>
