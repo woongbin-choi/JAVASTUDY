@@ -310,4 +310,22 @@ public class QuerydslBasicTest {
         assertThat(result).extracting("age")
                 .containsExactly(40);
     }
+
+    /*
+    나이가 평균 이상인 회원 조회
+     */
+    @Test
+    public void subQueryGoe() {
+        QMember memberSub = new QMember("memberSub");
+
+        List<Member> result = queryFactory
+                .selectFrom(member)
+                .where(member.age.goe(
+                        JPAExpressions.select(memberSub.age.avg())
+                )).from(memberSub)
+                .fetch();
+
+        assertThat(result).extracting("age")
+                .containsExactly(30,40);
+    }
 }
