@@ -64,8 +64,6 @@ public class QuerydslBasicTest {
 
     @Test
     public void startQuerydsl() {
-//        QMember m = new QMember("m");
-//        QMember m = QMember.member;
         Member findMember = queryFactory
                 .select(member)
                 .from(member)
