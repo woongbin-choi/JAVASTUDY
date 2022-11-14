@@ -638,4 +638,12 @@ public class QuerydslBasicTest {
         // 빼는건 마이너스 없음 add(-1로 해야함)
         // multuply로 곱하기 가능
     }
+
+    @Test
+    public void bulkDelete() {
+        long count = queryFactory
+                .delete(member)
+                .where(member.age.gt(18))
+                .execute();
+    }
 }
