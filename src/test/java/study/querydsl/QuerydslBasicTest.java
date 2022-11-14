@@ -4,6 +4,7 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
@@ -585,17 +586,22 @@ public class QuerydslBasicTest {
     }
 
     // 응답값이 null이면 무시해버림, 동적 쿼리가 만들어질 수 있음
-    private Predicate usernameEq(String usernameCond) {
+    private BooleanExpression usernameEq(String usernameCond) {
         if(usernameCond != null) {
             return null;
         }
         return member.username.eq(usernameCond);
     }
 
-    private Predicate ageEq(Integer ageCond) {
+    private BooleanExpression ageEq(Integer ageCond) {
         if(ageCond != null) {
             return null;
         }
         return member.age.eq(ageCond);
+    }
+
+    // 조합이 되는 장점
+    private BooleanExpression allEq(String usernameCond, Integer ageCond) {
+        return usernameEq(usernameCond).and(ageEq(ageCond));
     }
 }
