@@ -1,6 +1,7 @@
 package study.querydsl;
 
 import com.querydsl.core.Tuple;
+import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import study.querydsl.dto.MemberDto;
 import study.querydsl.entity.Member;
 import study.querydsl.entity.QMember;
 import study.querydsl.entity.Team;
@@ -18,6 +20,7 @@ import study.querydsl.entity.Team;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -450,4 +453,18 @@ public class QuerydslBasicTest {
             System.out.println("age =" + age);
         }
     }
+
+    @Test
+    public void findDtoByJPQL() {
+        List<MemberDto> resultList =
+                em.createQuery("select new study.querydsl.dto.MemberDto(m.username, m.age) " +
+                        "from Member m", MemberDto.class)
+                .getResultList();
+
+        for (MemberDto memberDto : resultList) {
+            System.out.println("memberDto =" + memberDto);
+        }
+    }
+
+
 }
