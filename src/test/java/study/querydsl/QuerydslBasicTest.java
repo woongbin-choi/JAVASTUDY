@@ -623,5 +623,19 @@ public class QuerydslBasicTest {
 
         // 벌크 연산은 DB에 바로 쿼리 전달 -> 트랜잭션 안에서 영속성 컨텍스트에 값과 디비 값 불일치 현상
 
+        em.flush();
+        em.clear();
+        // 초기화로 문제 해결
+    }
+
+    @Test
+    public void bulkAdd() {
+        long count = queryFactory
+                .update(member)
+                .set(member.age, member.age.add(1))
+                .execute();
+
+        // 빼는건 마이너스 없음 add(-1로 해야함)
+        // multuply로 곱하기 가능
     }
 }
