@@ -604,4 +604,24 @@ public class QuerydslBasicTest {
     private BooleanExpression allEq(String usernameCond, Integer ageCond) {
         return usernameEq(usernameCond).and(ageEq(ageCond));
     }
+
+    // Diry checking은 건별로 업데이트
+    // 벌크 연산 = 한번에 업데이트
+    @Test
+    public void bulkUpdate(){
+
+        // member1 = 10 -> 비회원
+        // member2 = 20 -> 비회원
+        // member3 = 30 -> 유지
+        // member4 = 40 -> 유지
+
+        long count = queryFactory
+                .update(member)
+                .set(member.username, "비회원")
+                .where(member.age.lt(28))
+                .execute();
+
+        // 벌크 연산은 DB에 바로 쿼리 전달 -> 트랜잭션 안에서 영속성 컨텍스트에 값과 디비 값 불일치 현상
+
+    }
 }
