@@ -2,6 +2,7 @@ package study.querydsl;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.core.types.dsl.Expressions;
@@ -563,5 +564,38 @@ public class QuerydslBasicTest {
                 .selectFrom(member)
                 .where(builder)
                 .fetch();
+    }
+
+    @Test
+    public void dynamicQuery_WhereParam() {
+        String usernameParam = "member1";
+        Integer ageParam = 10;
+
+        List<Member> result = searchMember2(usernameParam, ageParam);
+
+        Assertions.assertThat(result.size()).isEqualTo(2);
+    }
+
+
+    private List<Member> searchMember2(String usernameCond, Integer ageCond) {
+        return queryFactory
+                .selectFrom(member)
+                .where(usernameEq(usernameCond), ageEq(ageCond))
+                .fetch();
+    }
+
+    // 응답값이 null이면 무시해버림, 동적 쿼리가 만들어질 수 있음
+    private Predicate usernameEq(String usernameCond) {
+        if(usernameCond != null) {
+            return null;
+        }
+        return member.username.eq(usernameCond);
+    }
+
+    private Predicate ageEq(Integer ageCond) {
+        if(ageCond != null) {
+            return null;
+        }
+        return member.age.eq(ageCond);
     }
 }
