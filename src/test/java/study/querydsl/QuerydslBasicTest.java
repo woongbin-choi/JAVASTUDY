@@ -546,12 +546,12 @@ public class QuerydslBasicTest {
         String usernameParam = "member1";
         Integer ageParam = 10;
 
-        List<Member> result = searchMember1(usernameParam, ageParam);
+        List<Member> result = searchMember(usernameParam, ageParam);
 
-        Assertions.assertThat(result.size()).isEqualTo(2);
+        Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
-    private List<Member> searchMember1(String usernameCond, Integer ageCond) {
+    private List<Member> searchMember(String usernameCond, Integer ageCond) {
 
         BooleanBuilder builder = new BooleanBuilder();
         if (usernameCond != null) {
@@ -572,13 +572,13 @@ public class QuerydslBasicTest {
         String usernameParam = "member1";
         Integer ageParam = 10;
 
-        List<Member> result = searchMember2(usernameParam, ageParam);
+        List<Member> result = searchMemberWithWhere(usernameParam, ageParam);
 
         Assertions.assertThat(result.size()).isEqualTo(2);
     }
 
 
-    private List<Member> searchMember2(String usernameCond, Integer ageCond) {
+    private List<Member> searchMemberWithWhere(String usernameCond, Integer ageCond) {
         return queryFactory
                 .selectFrom(member)
                 .where(usernameEq(usernameCond), ageEq(ageCond))
@@ -645,5 +645,18 @@ public class QuerydslBasicTest {
                 .delete(member)
                 .where(member.age.gt(18))
                 .execute();
+    }
+
+    @Test
+    public void sqlFunction() {
+        String result = queryFactory
+                .select(Expressions.stringTemplate("function('replace', {0}, {1}, {2})", member.username, "member", "M"))
+                .from(member)
+                .fetchFirst();
+
+//                .select(member.username)
+//                .from(member)
+//                .where(member.username.eq(Expressions.stringTemplate("function('lower', {0})",
+//                        member.username)))
     }
 }
