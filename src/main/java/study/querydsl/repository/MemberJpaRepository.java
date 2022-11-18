@@ -49,9 +49,10 @@ public class MemberJpaRepository {
                 .getResultList();
     }
 
-//    public List<Member> findByUsername_Querydsl(String username) {
-//        return queryFactory
-//                .selectFrom(member)
-//                .where()
-//    }
+    public List<Member> findByUsername_Querydsl(String username) {
+        return queryFactory
+                .selectFrom(member)
+                .where(member.username.eq(username))
+                .fetch();
+    }
 }
