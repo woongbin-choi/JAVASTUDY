@@ -58,6 +58,7 @@ class MemberJpaRepositoryTest {
 
         Member member3 = new Member("member3", 30, teamB);
         Member member4 = new Member("member4", 40, teamB);
+        Member member5 = new Member("member4", 40, teamB);
         em.persist(member1);
         em.persist(member2);
         em.persist(member3);
