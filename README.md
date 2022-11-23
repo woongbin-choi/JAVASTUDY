@@ -1,11 +1,12 @@
 # _💾 QueryDSL_
 ## 📝Contents
 * [김영한 님의 '실전! QueryDSL'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 QueryDSL을 활용한 실무예제 연습
-* [정리 포스팅](https://binco.tistory.com/entry/QueryDSL-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%A0%9C%EC%8B%9C%EB%A6%AC%EC%A6%88).
+* [정리 포스팅](https://binco.tistory.com/entry/QueryDSL-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%A0%9C%EC%8B%9C%EB%A6%AC%EC%A6%88)
 <br><br>
 
 ![image](https://user-images.githubusercontent.com/77534863/203458225-cd6606f2-09eb-4e15-ae26-08bff77707af.png)
 
+이전까지 배웠던 기본 JPA와 Query DSL의 차이점을 살펴보면서 Query DSL을 사용했을 때의 장점을 알아보고 기본 문법부터 프로젝션, 벌크 연산, 페이징 처리 등 다양한 기술을 접할 수 있었으며 실무 활용 챕터 강의를 통해 실무에서는 Query DSL을 어떻게 사용하는지 알 수 있게 되었다. 
 
 
 <br />
@@ -14,7 +15,7 @@
 # _📲 Spring Data JPA_
 ## 📝Contents
 * [김영한 님의 '실전! 스프링 데이터 JPA'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 JPA 및 Spring Data JPA 연습
-* [정리 포스팅](https://binco.tistory.com/m/entry/SpringDataJPA-%EA%B8%B0%EC%A1%B4JPA-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%82%AC%EC%9A%A9%EB%B2%95).
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringDataJPA-%EA%B8%B0%EC%A1%B4JPA-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%82%AC%EC%9A%A9%EB%B2%95)
 <br><br>
 
 ![image](https://user-images.githubusercontent.com/77534863/196109876-102a0c49-1faa-4428-b2bb-597a26610b3d.png)
