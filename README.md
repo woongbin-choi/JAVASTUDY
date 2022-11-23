@@ -1,3 +1,16 @@
+# _📲 QueryDSL_
+## 📝Contents
+* [김영한 님의 '실전! QueryDSL'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 QueryDSL을 활용한 실무예제 연습
+* [정리 포스팅](https://binco.tistory.com/entry/QueryDSL-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%A0%9C%EC%8B%9C%EB%A6%AC%EC%A6%88).
+<br><br>
+
+![image](https://user-images.githubusercontent.com/77534863/203458225-cd6606f2-09eb-4e15-ae26-08bff77707af.png)
+
+
+
+<br />
+
+
 # _📲 Spring Data JPA_
 ## 📝Contents
 * [김영한 님의 '실전! 스프링 데이터 JPA'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 JPA 및 Spring Data JPA 연습
