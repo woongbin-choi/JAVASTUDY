@@ -1,6 +1,21 @@
+# _📲 Spring Data JPA_
+## 📝Contents
+* [김영한 님의 '실전! 스프링 데이터 JPA'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84)를 통해 JPA 및 Spring Data JPA 연습
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringDataJPA-%EA%B8%B0%EC%A1%B4JPA-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%82%AC%EC%9A%A9%EB%B2%95).
+<br><br>
+
+![image](https://user-images.githubusercontent.com/77534863/196109876-102a0c49-1faa-4428-b2bb-597a26610b3d.png)
+
+간단한 도메인 예제를 가지고 순수 JPA부터 Spring Data JPA의 여러 기술들을 접할 수 있었다. 간단하게 코드를 수정해서 N+1문제를 해결하고 성능 최적화를 해나가는 과정이 놀라웠다. 순수 JPA와 Spring Data JPA의 차이점을 알게 되었고, 다양한 에노테이션을 직접 사용해 볼 수 있었다. 단순히 그냥 쓰던 기술들도 이번 기회에 어떤 동작원리를 가지고 진행 되는지에 대해 알게 되어서 좋았다.
+
+<br />
+
 # _🛍BincoShop_
 ## 📝Contents
-* [김영한](https://www.inflearn.com/users/@yh/blogs)님의 ['스프링 부트와 JPA 활용'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard)를 통해 JPA & SpringBoot & Thymeleaf 연습<br><br>
+* [김영한](https://www.inflearn.com/users/@yh/blogs)님의 ['스프링 부트와 JPA 활용'](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard)를 통해 JPA & SpringBoot & Thymeleaf 연습
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringBoot-JPA-%EC%87%BC%ED%95%91%EB%AA%B0-%EB%8F%84%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%84%A4%EA%B3%84)
+<br><br>
+
 
 ![image](https://user-images.githubusercontent.com/77534863/188764194-31b0961c-c4ec-4f9e-90c2-fb627120202e.png)
 
@@ -14,7 +29,9 @@
 
 # _📙Bincolog_
 ## 📝Contents
-* [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습 <br><br>
+* [호돌맨](https://hodolman.com/)님의 ['호돌맨의 요절복통 개발쇼'](https://www.inflearn.com/course/%ED%98%B8%EB%8F%8C%EB%A7%A8-%EC%9A%94%EC%A0%88%EB%B3%B5%ED%86%B5-%EA%B0%9C%EB%B0%9C%EC%87%BC/dashboard)를 통해 JPA CRUD 연습 
+* [정리 포스팅](https://binco.tistory.com/m/entry/SpringBoot-JPA-%EA%B2%8C%EC%8B%9C%ED%8C%90-CRUD-%EA%B5%AC%ED%98%84Create)
+<br><br>
 
 ![캡처](https://user-images.githubusercontent.com/77534863/179460311-22a67731-2601-4bab-a898-e282a9dc98e0.PNG)
 
