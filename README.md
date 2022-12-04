@@ -1,6 +1,6 @@
 # _💾 QueryDSL_
 ## 📝Contents
-* [김영한 님의 '실전! QueryDSL'](https://www.inflearn.com/course/Querydsl-%EC%8B%A4%EC%A0%84)를 통해 QueryDSL을 활용한 실무예제 연습.
+* [김영한 님의 '실전! QueryDSL'](https://www.inflearn.com/course/Querydsl-%EC%8B%A4%EC%A0%84)를 통해 QueryDSL을 활용한 실무예제 연습
 * [정리 포스팅](https://binco.tistory.com/entry/QueryDSL-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%A0%9C%EC%8B%9C%EB%A6%AC%EC%A6%88)
 <br><br>
 
